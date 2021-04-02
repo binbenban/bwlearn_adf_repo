@@ -239,7 +239,7 @@
 					"location": {
 						"type": "HttpServerLocation",
 						"relativeUrl": {
-							"value": "@{dataset().FileName}.csv",
+							"value": "@{dataset().FileName}.csv.gz",
 							"type": "Expression"
 						}
 					},
