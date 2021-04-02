@@ -1,5 +1,5 @@
 {
-	"name": "ASQL_lego_themes1",
+	"name": "ASQL_lego_themes",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ASQL_bwlearn",

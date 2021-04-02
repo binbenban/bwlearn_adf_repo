@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "ASQL_lego_themes1",
+						"referenceName": "ASQL_lego_themes",
 						"type": "DatasetReference"
 					},
 					"name": "ASQLLegoThemes"
