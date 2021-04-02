@@ -6,9 +6,46 @@
 				"name": "Set variable1",
 				"type": "SetVariable",
 				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "Files",
+					"value": [
+						"colors",
+						"inventories",
+						"inventory_parts",
+						"part_categories",
+						"parts",
+						"sets",
+						"themes"
+					]
+				}
+			},
+			{
+				"name": "If Load All Files",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"userProperties": []
 			}
 		],
+		"variables": {
+			"Files": {
+				"type": "Array"
+			},
+			"ListOfFiles": {
+				"type": "String"
+			},
+			"LoadAllFiles": {
+				"type": "Boolean",
+				"defaultValue": false
+			}
+		},
 		"annotations": []
 	}
 }
