@@ -1,0 +1,9 @@
+{
+	"name": "adf-bwlearn1",
+	"location": "australiaeast",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ea312732-c73a-4890-b7ee-ad90d29483f7",
+		"tenantId": "a4cb6dd1-0962-4927-97f1-672fc0b30589"
+	}
+}

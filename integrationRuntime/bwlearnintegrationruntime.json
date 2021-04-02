@@ -1,0 +1,6 @@
+{
+	"name": "bwlearnintegrationruntime",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"name": "Lego_ADLS_to_ASQL_Themes",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lego_Themes",
+				"description": "annotation?",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Lego_Themes",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [
+			"aaaaaa"
+		],
+		"lastPublishTime": "2021-04-02T03:13:38Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

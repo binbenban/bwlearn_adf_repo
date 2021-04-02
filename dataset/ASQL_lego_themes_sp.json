@@ -1,0 +1,36 @@
+{
+	"name": "ASQL_lego_themes_sp",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ASQL_bwlearn",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			},
+			{
+				"name": "parent_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "load_date",
+				"type": "date"
+			}
+		],
+		"typeProperties": {
+			"schema": "lego",
+			"table": "themes"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
