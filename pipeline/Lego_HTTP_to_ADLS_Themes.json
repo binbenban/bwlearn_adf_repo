@@ -17,11 +17,11 @@
 				"userProperties": [
 					{
 						"name": "Source",
-						"value": "themes.csv.gz"
+						"value": "@{pipeline().parameters.FileName}.csv"
 					},
 					{
 						"name": "Destination",
-						"value": "lego//themes.csv"
+						"value": "lego//@{pipeline().parameters.FileName}.csv"
 					}
 				],
 				"typeProperties": {
@@ -60,7 +60,10 @@
 								"referenceName": "ABLB_bw",
 								"type": "LinkedServiceReference"
 							},
-							"path": "lego/errors/themes"
+							"path": {
+								"value": "lego/errors/@{pipeline().parameters.FileName}.csv",
+								"type": "Expression"
+							}
 						}
 					}
 				},
@@ -78,10 +81,13 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "HTTP_lego_dynamic",
+						"referenceName": "ADLS_lego_dynamic",
 						"type": "DatasetReference",
 						"parameters": {
-							"FileName": "FileName"
+							"FileName": {
+								"value": "@pipeline().parameters.FileName",
+								"type": "Expression"
+							}
 						}
 					}
 				]
