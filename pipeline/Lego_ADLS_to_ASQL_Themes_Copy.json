@@ -56,7 +56,9 @@
 				]
 			}
 		],
-		"annotations": [],
+		"annotations": [
+			"testanno"
+		],
 		"lastPublishTime": "2021-04-02T03:59:54Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
