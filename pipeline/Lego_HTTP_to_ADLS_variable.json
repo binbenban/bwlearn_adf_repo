@@ -31,19 +31,56 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@pipeline().parameters.LoadAllFiles",
+						"type": "Expression"
+					},
+					"ifTrueActivities": [
+						{
+							"name": "Append variable1",
+							"type": "AppendVariable",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Files",
+								"value": "inventory_sets"
+							}
+						},
+						{
+							"name": "Append variable2",
+							"type": "AppendVariable",
+							"dependsOn": [
+								{
+									"activity": "Append variable1",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Files",
+								"value": "part_relationships"
+							}
+						}
+					]
+				}
 			}
 		],
+		"parameters": {
+			"LoadAllFiles": {
+				"type": "bool",
+				"defaultValue": false
+			}
+		},
 		"variables": {
 			"Files": {
 				"type": "Array"
 			},
 			"ListOfFiles": {
 				"type": "String"
-			},
-			"LoadAllFiles": {
-				"type": "Boolean",
-				"defaultValue": false
 			}
 		},
 		"annotations": []
