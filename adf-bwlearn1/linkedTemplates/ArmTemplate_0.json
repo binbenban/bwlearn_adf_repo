@@ -129,27 +129,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/ASQL_lego_themes')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "ASQL_bwlearn",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "lego",
-					"table": "theme"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ASQL_bwlearn')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/ASQL_lego_themes1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
