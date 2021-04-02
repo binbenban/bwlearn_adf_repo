@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Set variable1",
+				"name": "Set files",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"userProperties": [],
@@ -25,7 +25,7 @@
 				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "Set variable1",
+						"activity": "Set files",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -67,26 +67,6 @@
 						}
 					]
 				}
-			},
-			{
-				"name": "Set list of files",
-				"type": "SetVariable",
-				"dependsOn": [
-					{
-						"activity": "If Load All Files",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"variableName": "ListOfFiles",
-					"value": {
-						"value": "Load @{length(variables('Files'))} files: @{join(variables('Files'), ', ')}",
-						"type": "Expression"
-					}
-				}
 			}
 		],
 		"parameters": {
@@ -98,9 +78,6 @@
 		"variables": {
 			"Files": {
 				"type": "Array"
-			},
-			"ListOfFiles": {
-				"type": "String"
 			}
 		},
 		"annotations": []
