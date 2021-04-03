@@ -32,7 +32,7 @@
 				"type": "ExecutePipeline",
 				"dependsOn": [
 					{
-						"activity": "Lookup Config Table",
+						"activity": "Filter Active Files",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -47,9 +47,32 @@
 					"waitOnCompletion": true,
 					"parameters": {
 						"FileName": {
-							"value": "@activity('Lookup Config Table').output.firstRow.SourceFileName",
+							"value": "@activity('Filter Active Files').output.value",
 							"type": "Expression"
 						}
+					}
+				}
+			},
+			{
+				"name": "Filter Active Files",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Lookup Config Table",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup Config Table').output.value",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals(item().IsActive, '1')",
+						"type": "Expression"
 					}
 				}
 			}
