@@ -28,32 +28,6 @@
 				}
 			},
 			{
-				"name": "Lego_HTTP_to_ADLS_Themes",
-				"type": "ExecutePipeline",
-				"dependsOn": [
-					{
-						"activity": "Filter Active Files",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "Lego_HTTP_to_ADLS_Themes",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": true,
-					"parameters": {
-						"FileName": {
-							"value": "@activity('Filter Active Files').output.value",
-							"type": "Expression"
-						}
-					}
-				}
-			},
-			{
 				"name": "Filter Active Files",
 				"type": "Filter",
 				"dependsOn": [
@@ -74,6 +48,46 @@
 						"value": "@equals(item().IsActive, true)",
 						"type": "Expression"
 					}
+				}
+			},
+			{
+				"name": "ForEach File Name",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Filter Active Files",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Filter Active Files').output.Value",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Execute Pipeline",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "Lego_HTTP_to_ADLS_Themes",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"FileName": {
+										"value": "@item().SourceFileName",
+										"type": "Expression"
+									}
+								}
+							}
+						}
+					]
 				}
 			}
 		],
