@@ -24,7 +24,7 @@
 						"referenceName": "ASQL_lego_Config",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": true
+					"firstRowOnly": false
 				}
 			},
 			{
